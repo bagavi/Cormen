@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 class Heapsort {
-
+int size ;
 private:
 	//All private members here
 protected:
@@ -15,13 +15,15 @@ public:
         //constructor
     }
 
-    void sort( int arr[] , int size){
+    void sort( int arr[] , int size1){
+    	size = size1 ;
     	int i, temp ;
     	int size_2 = size ;
     	printf("Intial Array\n") ;
-    	print_array(arr , size);
+    	print_array(arr);
     	build_heap(arr ,size) ;
-
+    	printf("Heaped Array\n") ;
+    	print_array(arr);
     	for( i = 0 ; i < size ; i++){
     		temp = arr[size - 1 -i] ;
     		arr[size - 1 -i] = arr[0] ;
@@ -30,7 +32,7 @@ public:
     		build_heap(arr , size_2);
     	}
     	printf("Final Array\n") ;
-    	print_array(arr , size);
+    	print_array(arr);
     }
 
     /*
@@ -65,10 +67,19 @@ public:
     	}
     }
 
+    int heap_extract_max(int arr[]){
+    	int max = arr[0];
+    	size--;
+    	arr[0] = arr[size] ;
+    	arr[size] = max ;
+    	printf("The current max is %d" ,max) ;
+    	max_heapify(arr,0,size) ;
+    	return max ;
+    }
     /*
      * Prints out the array in a single line and adds "\n"
      */
-    void print_array(int arr[]  , int size){
+    void print_array(int arr[] ){
     	int i;
     	for( i=0 ; i<size ; i++){
     		printf(" %d",arr[i]);
