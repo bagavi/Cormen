@@ -88,7 +88,7 @@ public:
     }
 
 };
-
+/*
 int main()
 {
 	Heapsort obj;
@@ -96,3 +96,4 @@ int main()
 	int size = sizeof(arr)/sizeof(arr[0]); //
 	obj.sort(arr, size);
 }
+*/
